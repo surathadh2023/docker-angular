@@ -1,12 +1,14 @@
-sudo required
+sudo: required
 
 services:
   - docker
 
 before_install: 
-  docker run -f Dockerfile.dev surath/sample-app sh npm run test
+  - docker build -f Dockerfile.dev -t surath/sample-app .
 
 
  script:
-   docker run -p 80:80 -t surath/sample-app
+   - docker run -e CI=true surath/sample-app npm run test
+
+
 
