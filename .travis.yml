@@ -4,4 +4,4 @@ services:
 before_install:
   - docker build -f Dockerfile.dev -t surath/sample-app .
 script:
-  - docker run -e CI=true surath/sample-app npm run test
+  - docker run surath/sample-app npm run test
