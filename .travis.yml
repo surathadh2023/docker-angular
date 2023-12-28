@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - export CHROME_BIN=chromium-browser
+  - ENV CHROME_BIN=/usr/bin/google-chrome
   - docker build -t surath/sample-app -f Dockerfile.dev .
 script:
-  - docker run -e CI=true surath/sample-app npm run test
+  - docker run surath/sample-app npm run test
